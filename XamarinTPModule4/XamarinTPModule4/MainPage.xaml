@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinTPModule4.MainPage">
+
+    <StackLayout>
+        <ContentView BackgroundColor="#58B0F0">
+            <StackLayout  Margin="10, 25" Orientation="Horizontal">
+                <Label Text="Nouveau" VerticalTextAlignment="Center"></Label>
+                <Label Text="Accueil" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Rechercher" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+        </ContentView>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                    <ContentView Margin="10" WidthRequest="75" HeightRequest="75" BackgroundColor="Black"></ContentView>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Cedric" TextColor="Black"></Label>
+                            <Label Text="@cedricmillauriaux" TextColor="Black"></Label>
+                            <Label Text="50s" TextColor="Gray" HorizontalOptions="EndAndExpand"></Label>
+                        </StackLayout>
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                   TextColor="Black"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="FillAndExpand" Text="Répondre" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Text="Retweet" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                    <Label HorizontalOptions="FillAndExpand" Text="Favoris" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                </StackLayout>
+                <ContentView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"></ContentView>
+            </StackLayout>
+        </ScrollView>
+        <ContentView VerticalOptions="EndAndExpand"
+                     HeightRequest="75">
+            <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="Fil"
+                       TextColor="LightBlue"
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Notifications"
+                       TextColor="Gray"
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Messages"
+                       TextColor="Gray"
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Moi"
+                       TextColor="Gray"
+                       HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+        </ContentView>
+    </StackLayout>
+
+</ContentPage>

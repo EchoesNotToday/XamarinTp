@@ -30,6 +30,7 @@
                 </ImageButton>
             </StackLayout>
         </ContentView>
+
         <ScrollView
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand">
@@ -39,50 +40,68 @@
                     Orientation="Vertical"
                     HorizontalOptions="FillAndExpand"
                     Margin="10">
-                    <Label Text="Connexion à Twitter"
+                    <StackLayout x:Name="LoginForm" IsVisible="True">
+                        <Label Text="Connexion à Twitter"
                            HorizontalOptions="Center"
                            TextColor="Black"/>
-                    <Entry MaxLength="20"
-                           Placeholder="Identifiant Twitter"/>
-                    <Entry MaxLength="20"
+                        <Entry MaxLength="20"
+                           Placeholder="Identifiant Twitter"
+                           x:Name="TwitterId"/>
+                        <Entry MaxLength="20"
                            Placeholder="Mot de Passe"
-                           IsPassword="True"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Switch OnColor="#58B0F0"/>
-                        <Label Text="Mémoriser mes informations"
+                           IsPassword="True"
+                           x:Name="Password"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch OnColor="#58B0F0"
+                                x:Name="Remember"/>
+                            <Label Text="Mémoriser mes informations"
                                VerticalTextAlignment="Center"
                                FontSize="14"/>
-                    </StackLayout>
-                    <Button Text="Se connecter"
+                        </StackLayout>
+                        <Button Text="Se connecter"
                             BackgroundColor="#58B0F0"
-                            TextColor="White"/>
-                    <StackLayout Orientation="Horizontal"
+                            TextColor="White"
+                            Clicked="Login"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label IsVisible="False"
+                               TextColor="Red"
+                               x:Name="LoginError"></Label>
+                    </StackLayout>
+                    <StackLayout x:Name="TweetContainer"
+                                 IsVisible="False">
+                        <StackLayout Orientation="Horizontal"
                              Margin="10">
-                        <Image Source="https://picsum.photos/50/50/?random"
+                            <Image Source="https://picsum.photos/50/50/?random"
                                Aspect="AspectFit"
                                WidthRequest="75"
-                               BackgroundColor="Transparent"/>
-                        <StackLayout Orientation="Vertical"
+                               BackgroundColor="Transparent"
+                                   x:Name="ProfilePic"
+                                   IsVisible="False"/>
+                            <StackLayout Orientation="Vertical"
                         HorizontalOptions="FillAndExpand">
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Cedric"
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Cedric"
                                    TextColor="Black"
                                    ></Label>
-                                <Label Text="@cedricmillauriaux"
+                                    <Label Text="@cedricmillauriaux"
                                    TextColor="Black"
                                    ></Label>
-                                <Label Text="50s"
+                                    <Label Text="50s"
                                    TextColor="Gray"
                                    HorizontalOptions="EndAndExpand"
                                    ></Label>
-                            </StackLayout>
-                            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                </StackLayout>
+                                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                                    TextColor="Black"
                                ></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"
+                             x:Name="TweetButtonContainer"
+                             IsVisible="False">
                     <ImageButton Source="reply.png"
                                  BackgroundColor="Transparent"
                                  WidthRequest="25"
@@ -104,6 +123,7 @@
                 </StackLayout>
                 <ContentView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"></ContentView>
             </StackLayout>
+
         </ScrollView>
         <ContentView VerticalOptions="EndAndExpand"
                      HeightRequest="75">

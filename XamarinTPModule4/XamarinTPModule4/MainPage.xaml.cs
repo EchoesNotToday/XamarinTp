@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinTPModule4.Services;
 
@@ -23,7 +24,7 @@ namespace XamarinTPModule4
         }
         public void Login(object sender, EventArgs e)
         {
-            if (CheckId(this) && CheckPassword(this) && Auth(this))
+            if (CheckId(this) && CheckPassword(this) && Auth(this) && IsNetworkAct(this))
             {
                 DisplayTweet();
             }
@@ -76,6 +77,16 @@ namespace XamarinTPModule4
             {
                 res = false;
                 mainPage.LoginError.Text = "Identifiant ou mot de passe inconnu.";
+            }
+            return res;
+        }
+        private static bool IsNetworkAct(MainPage mainPage)
+        {
+            bool res = true;
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                mainPage.LoginError.Text = "Aucune connexion internet disponible.";
+                res = false;
             }
             return res;
         }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XamarinTPModule4.Services;
 
 namespace XamarinTPModule4
 {
@@ -13,6 +14,7 @@ namespace XamarinTPModule4
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private ITwitterServiceImpl twitterService = new ITwitterServiceImpl();
         public string Error { get; set; }
         public MainPage()
         {
@@ -21,7 +23,7 @@ namespace XamarinTPModule4
         }
         public void Login(object sender, EventArgs e)
         {
-            if (CheckId(this.TwitterId.Text, this) && CheckPassword(this.Password.Text, this))
+            if (CheckId(this) && CheckPassword(this) && Auth(this))
             {
                 DisplayTweet();
             }
@@ -47,23 +49,33 @@ namespace XamarinTPModule4
             this.TweetButtonContainer.IsVisible = false;
             this.LoginError.IsVisible = true;
         }
-        private static bool CheckId(string id, MainPage mainPage)
+        private static bool CheckId(MainPage mainPage)
         {
             bool res = true;
-            if (string.IsNullOrEmpty(id) || id.Length < 3)
+            if (string.IsNullOrEmpty(mainPage.TwitterId.Text) || mainPage.TwitterId.Text.Length < 3)
             {
                 mainPage.LoginError.Text = "Merci de renseigner un identifiant valide.";
                 res = false;
             }
             return res;
         }
-        private static bool CheckPassword(string password, MainPage mainPage)
+        private static bool CheckPassword(MainPage mainPage)
         {
             bool res = true;
-            if (string.IsNullOrEmpty(password)|| password.Length < 6)
+            if (string.IsNullOrEmpty(mainPage.Password.Text)|| mainPage.Password.Text.Length < 6)
             {
                 mainPage.LoginError.Text = "Merci de renseigner un mot de passe valide.";
                 res = false;
+            }
+            return res;
+        }
+        private static bool Auth(MainPage mainPage)
+        {
+            bool res = true;
+            if (!mainPage.twitterService.Authenticate(mainPage.TwitterId.Text, mainPage.Password.Text))
+            {
+                res = false;
+                mainPage.LoginError.Text = "Identifiant ou mot de passe inconnu.";
             }
             return res;
         }

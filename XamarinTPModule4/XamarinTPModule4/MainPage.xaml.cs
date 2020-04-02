@@ -26,31 +26,14 @@ namespace XamarinTPModule4
         {
             if (CheckId(this) && CheckPassword(this) && Auth(this) && IsNetworkAct(this))
             {
-                DisplayTweet();
                 await Navigation.PushAsync(new TweetListPage());
             }
             else
             {
-                HideTweet();
+                this.LoginError.IsVisible = true;
             }
         }
 
-        private void DisplayTweet()
-        {
-            this.LoginForm.IsVisible = false;
-            this.ProfilePic.IsVisible = true;
-            this.TweetContainer.IsVisible = true;
-            this.TweetButtonContainer.IsVisible = true;
-            this.LoginError.IsVisible = false;
-        }
-        private void HideTweet()
-        {
-            this.LoginForm.IsVisible = true;
-            this.ProfilePic.IsVisible = false;
-            this.TweetContainer.IsVisible = false;
-            this.TweetButtonContainer.IsVisible = false;
-            this.LoginError.IsVisible = true;
-        }
         private static bool CheckId(MainPage mainPage)
         {
             bool res = true;

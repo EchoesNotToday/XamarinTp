@@ -19,7 +19,7 @@ namespace XamarinTPModule4.Services
             }
         }
 
-        public List<Tweet> GetTweets(string s)
+        public List<Tweet> GetTweets()
         {
             List<Tweet> res = new List<Tweet>() {
             new Tweet { Id = "001", CreationDate="01/04/2020", Text= "gravida neque convallis a cras", UserAlias="LeRoiDesRoublards", UserId="001", UserName="Patrick" },

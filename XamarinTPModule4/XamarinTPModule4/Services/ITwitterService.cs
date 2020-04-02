@@ -8,6 +8,6 @@ namespace XamarinTPModule4.Services
     interface ITwitterService
     {
         bool Authenticate(string user, string password);
-        List<Tweet> GetTweets(string s);
+        List<Tweet> GetTweets();
     }
 }

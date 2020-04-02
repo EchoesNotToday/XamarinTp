@@ -68,58 +68,6 @@
                                TextColor="Red"
                                x:Name="LoginError"></Label>
                     </StackLayout>
-                    <StackLayout x:Name="TweetContainer"
-                                 IsVisible="False">
-                        <StackLayout Orientation="Horizontal"
-                             Margin="10">
-                            <Image Source="https://picsum.photos/50/50/?random"
-                               Aspect="AspectFit"
-                               WidthRequest="75"
-                               BackgroundColor="Transparent"
-                                   x:Name="ProfilePic"
-                                   IsVisible="False"/>
-                            <StackLayout Orientation="Vertical"
-                        HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Cedric"
-                                   TextColor="Black"
-                                   ></Label>
-                                    <Label Text="@cedricmillauriaux"
-                                   TextColor="Black"
-                                   ></Label>
-                                    <Label Text="50s"
-                                   TextColor="Gray"
-                                   HorizontalOptions="EndAndExpand"
-                                   ></Label>
-                                </StackLayout>
-                                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                   TextColor="Black"
-                               ></Label>
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal"
-                             x:Name="TweetButtonContainer"
-                             IsVisible="False">
-                    <ImageButton Source="reply.png"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HorizontalOptions="FillAndExpand"
-                                 >
-                    </ImageButton>
-                    <ImageButton Source="retweet.png"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HorizontalOptions="FillAndExpand"
-                                 >
-                    </ImageButton>
-                    <ImageButton Source="favorite.png"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="25"
-                                 HorizontalOptions="FillAndExpand"
-                                 >
-                    </ImageButton>
                 </StackLayout>
                 <ContentView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"></ContentView>
             </StackLayout>

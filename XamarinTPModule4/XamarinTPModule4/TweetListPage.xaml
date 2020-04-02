@@ -6,10 +6,65 @@
              mc:Ignorable="d"
              x:Class="XamarinTPModule4.TweetListPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="TweetList" RowHeight="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <StackLayout x:Name="TweetContainer">
+                                <StackLayout Orientation="Horizontal"
+                             Margin="10">
+                                    <Image Source="https://picsum.photos/50/50/?random"
+                               Aspect="AspectFit"
+                               WidthRequest="75"
+                               BackgroundColor="Transparent"
+                                   x:Name="ProfilePic"
+                                   />
+                                    <StackLayout Orientation="Vertical"
+                        HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding UserAlias}"
+                                   TextColor="Black"
+                                   ></Label>
+                                            <Label Text="@cedricmillauriaux"
+                                   TextColor="Black"
+                                   ></Label>
+                                            <Label Text="50s"
+                                   TextColor="Gray"
+                                   HorizontalOptions="EndAndExpand"
+                                   ></Label>
+                                        </StackLayout>
+                                        <Label Text="{Binding Text}"
+                                   TextColor="Black"
+                               ></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                             x:Name="TweetButtonContainer">
+                                <ImageButton Source="reply.png"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HorizontalOptions="FillAndExpand"
+                                 >
+                                </ImageButton>
+                                <ImageButton Source="retweet.png"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HorizontalOptions="FillAndExpand"
+                                 >
+                                </ImageButton>
+                                <ImageButton Source="favorite.png"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="25"
+                                 HorizontalOptions="FillAndExpand"
+                                 >
+                                </ImageButton>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

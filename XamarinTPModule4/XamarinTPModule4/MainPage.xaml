@@ -3,34 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:include="clr-namespace:XamarinTPModule4.includes"
              mc:Ignorable="d"
              x:Class="XamarinTPModule4.MainPage">
 
     <StackLayout>
-        <ContentView BackgroundColor="#58B0F0">
-            <StackLayout
-                Margin="10, 25"
-                Orientation="Horizontal">
-                <ImageButton Source="pencil.png"
-                             WidthRequest="25"
-                             BackgroundColor="Transparent">
-                </ImageButton>
-                <Label Text="Accueil" 
-                       VerticalTextAlignment="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       FontAttributes="Bold"
-                       FontSize="20"
-                       TextColor="White"
-                       >
-                </Label>
-                <ImageButton Source="search.png"
-                             WidthRequest="25"
-                             BackgroundColor="Transparent"
-                             >
-                </ImageButton>
-            </StackLayout>
-        </ContentView>
-
+        <include:Header/>
         <ScrollView
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand">
@@ -71,26 +49,7 @@
                 </StackLayout>
                 <ContentView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"></ContentView>
             </StackLayout>
-
         </ScrollView>
-        <ContentView VerticalOptions="EndAndExpand"
-                     HeightRequest="75">
-            <StackLayout Orientation="Horizontal" 
-                         VerticalOptions="CenterAndExpand">
-                <Label Text="Fil"
-                       TextColor="LightBlue"
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Notifications"
-                       TextColor="Gray"
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Messages"
-                       TextColor="Gray"
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Moi"
-                       TextColor="Gray"
-                       HorizontalOptions="CenterAndExpand"></Label>
-            </StackLayout>
-        </ContentView>
+        <include:Footer/>
     </StackLayout>
-
 </ContentPage>

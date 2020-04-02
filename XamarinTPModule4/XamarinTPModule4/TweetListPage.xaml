@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:include="clr-namespace:XamarinTPModule4.includes"
              mc:Ignorable="d"
              x:Class="XamarinTPModule4.TweetListPage">
-    <ContentPage.Content>
+    <StackLayout>
+        <include:Header/>
         <ListView x:Name="TweetList" RowHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -26,10 +28,10 @@
                                             <Label Text="{Binding UserAlias}"
                                    TextColor="Black"
                                    ></Label>
-                                            <Label Text="@cedricmillauriaux"
+                                            <Label Text="{Binding UserName}"
                                    TextColor="Black"
                                    ></Label>
-                                            <Label Text="50s"
+                                            <Label Text="{Binding CreationDate}"
                                    TextColor="Gray"
                                    HorizontalOptions="EndAndExpand"
                                    ></Label>
@@ -66,5 +68,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </ContentPage.Content>
+        <include:Footer/>
+    </StackLayout>
+
 </ContentPage>

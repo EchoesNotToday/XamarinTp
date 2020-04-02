@@ -22,11 +22,12 @@ namespace XamarinTPModule4
             InitializeComponent();
             
         }
-        public void Login(object sender, EventArgs e)
+        public async void LoginAsync(object sender, EventArgs e)
         {
             if (CheckId(this) && CheckPassword(this) && Auth(this) && IsNetworkAct(this))
             {
                 DisplayTweet();
+                await Navigation.PushAsync(new TweetListPage());
             }
             else
             {
